@@ -1,20 +1,4 @@
 
-/local.js
-/data
-/Assets
-/config.json
-/index.html
-/site.css
-/site-data.json
-
-index2.html
-nohup.out
-
-# Node related
-
-/node/node_modules
-
-
 
 
 #################################
