@@ -8,21 +8,21 @@ Usage:
 node cape-map.js <config.json> <dataset1> (<dataset2> ...)
 */
 
-import { readFileSync } from 'fs';
-import { SiteMapper } from "./lib/CapeMapper/SiteMapper.js";
+import {readFileSync} from 'fs';
+import {SiteMapper} from "./lib/CapeMapper/SiteMapper.js";
 
 var output_data;
-try { 
+try {
     let args = process.argv;
 
     args.shift(); // node
     args.shift(); // this script
-    if( args.length < 2 ) {
-        throw new Error( "cape-mapper expects at least two arguments" );
+    if (args.length < 2) {
+        throw new Error("cape-mapper expects at least two arguments");
     }
     const json_config_file = args.shift();
     const tabular_files = args;
-    
+
     const rawData = readFileSync(json_config_file).toString();
     let config = JSON.parse(rawData);
 
@@ -37,8 +37,8 @@ try {
 
 
     // the config allows multiple datasets, but this tool only supports one.
-    if( config['datasets'].length > 1 ) {
-        throw new Error( "cape-mapper only supports exactly one dataset" );
+    if (config['datasets'].length > 1) {
+        throw new Error("cape-mapper only supports exactly one dataset");
     }
     let mapper = new SiteMapper(config);
     const first_dataset_id = config['datasets'][0]['id'];
@@ -47,16 +47,15 @@ try {
 
     // In azure functions, this function is what is called:
     output_data = mapper.generate(site_datasets);
-}
-catch( error ) {
+} catch (error) {
     output_data = {
-      "status": "ERROR",
-      "errors": [ error.toString() ]
+        "status": "ERROR",
+        "errors": [error.toString()]
     };
     // Give full details to STDERR
-    console.error( error );
+    console.error(error);
 }
 
 // Pretty print the site JSON file to STDOUT
-const output_string = JSON.stringify( output_data, null, 4 );
+const output_string = JSON.stringify(output_data, null, 4);
 console.log(output_string);

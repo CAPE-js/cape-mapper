@@ -14,5 +14,8 @@
     "csv-parse": "^5.0.4",
     "fs": "^0.0.1-security",
     "node-xlsx": "^0.21.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
   }
 }
