@@ -41,6 +41,7 @@ Additional properties ignored by the mapper, passed through to the site JSON
   * On enum "is" filters, then the first value in the array is the default
   * On enum "one-of" filters, then all the values are the default
 * change_filter_mode - Boolean. Default true. If set to false then the filter mode can't be altered.
+* default_filter_mode - one of is,one-of,between,set,not-set
 * description - String. A longer description of the field used in mouse over or whatever the template wants.                
 * quick_search - Boolean. Default false. If true, this field will appear in the quick search in the UX. It is visible without selecting "advanced search".
 * search - Boolean. Default true. If false this field will not appear in any search -- quick or advanced.
