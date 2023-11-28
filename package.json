@@ -2,8 +2,7 @@
   "name": "@soton.ac.uk/cape-mapper",
   "version": "1.0.0",
   "description": "",
-  "main": "cape-map.js",
-  "type": "module",
+  "main": "cape-map.ts",
   "scripts": {
     "test": "vitest"
   },
@@ -11,12 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.10.0",
+    "brandi": "^5.0.0",
     "csv-parse": "^5.0.4",
     "fs": "^0.0.1-security",
-    "node-xlsx": "^0.21.0"
+    "node-xlsx": "^0.4.0"
   },
   "devDependencies": {
+    "@types/node": "^20.9.3",
     "standard": "^17.1.0",
+    "ts-mockito": "^2.6.1",
     "vitest": "^0.34.6"
   }
 }
